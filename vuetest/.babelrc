@@ -1,0 +1,35 @@
+{ /**Babel是一个广泛使用的转码器，可以将ES6代码转为ES5代码，从而在现有环境执行。
+   *也就是前端的es 的编译器，就是吧高版本的 es 转化成为es5
+   *babel-preset-env、babel-preset-es2015、babel-preset-es2016、babel-preset-es2017、babel-preset-latest等。
+   *在实际开发中可以只选用babel-preset-env来代替余下的，但是还需要配上javascirpt的制作规范一起使用，同时也是官方推荐
+   */
+  "presets": [/*字段设定转码规则，官方提供以下的规则集，你可以根据需要安装*/
+    ["env", {//编译器的版本
+      "modules": false,
+      "targets": {/*编译的目标，编译成为那个浏览器可用的版本*，不知道是否还有其他的配置*/
+        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+      }
+    }],
+    "stage-2" /*babel-preset-stage-0(stage-0)，babel-preset-stage-1(stage-1) babel-preset-stage-2(stage-2)
+                *babel-preset-stage-3(stage-3)babel主要提供以下几种转义器包,括号里面是对应配置文件的配置项*/
+  ],
+  // 下面指的是在生成的文件中，不产生注释
+  "comments": false,
+  /*插件配置项同预设配置项一样，需要搭配babel相应的插件进行配置，可以选择配置插件来满足单个需求，例如早期我们会有如下配置
+   *但是这些插件从维护到书写极为麻烦，后来官方统一推荐使用env，全部替代了这些单一的插件功能，可以简化配置如下，也就是我前面提到了babel-preset-env
+   **/
+  "plugins": [
+    "transform-vue-jsx",
+    "transform-runtime"/*为了解决这种全局对象或者全局对象方法编译不足的情况，才出现了transform-runtime这个插件，但是它只会对es6的语法进行转换，
+                         *而不会对新api进行转换。如果需要转换新api，也可以通过使用babel-polyfill来规避兼容性问题。
+                         */
+   // "syntax-dynamic-import"/*这个插件主要解决动态引入模块的问题，如果.babelrc配置项中使用了"stage-2"，也可以不实用该插件，同样支持动态模块引入。*/
+  ],
+  "ignore":["./module/a.js"],   /*这个好理解表示不编译那些文件*/
+  "env": {
+    "test": {// test 是提前设置的环境变量，如果没有设置BABEL_ENV则使用NODE_ENV，如果都没有设置默认就是development
+      "presets": ["env", "stage-2"],
+      "plugins": ["transform-vue-jsx", "transform-es2015-modules-commonjs", "dynamic-import-node"]
+    }
+  }
+}
