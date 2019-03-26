@@ -20,10 +20,11 @@
    **/
   "plugins": [
     "transform-vue-jsx",
-    "transform-runtime"/*为了解决这种全局对象或者全局对象方法编译不足的情况，才出现了transform-runtime这个插件，但是它只会对es6的语法进行转换，
+    "transform-runtime",/*为了解决这种全局对象或者全局对象方法编译不足的情况，才出现了transform-runtime这个插件，但是它只会对es6的语法进行转换，
                          *而不会对新api进行转换。如果需要转换新api，也可以通过使用babel-polyfill来规避兼容性问题。
                          */
    // "syntax-dynamic-import"/*这个插件主要解决动态引入模块的问题，如果.babelrc配置项中使用了"stage-2"，也可以不实用该插件，同样支持动态模块引入。*/
+    "babel-plugin-transform-decorators-legacy"
   ],
   "ignore":["./module/a.js"],   /*这个好理解表示不编译那些文件*/
   "env": {

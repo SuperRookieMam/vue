@@ -3,13 +3,13 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
-
+const assetsPublicPath = 'zz'
 module.exports = {
   dev: {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath,
     // 如果使用本地后台服务，请打开下列配置
     proxyTable: {
       '/dc/d/data/': {
