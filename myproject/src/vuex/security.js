@@ -1,4 +1,7 @@
+// import Vue from 'vue'
+// import axios from 'axios'
 
+// const loginInstance = axios.create()
 const flag = 'oauth'
 
 export default {

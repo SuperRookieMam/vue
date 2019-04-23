@@ -14,17 +14,16 @@ export default new Store({
     data: {}
   },
   getters: {
-    data (state) {
-      return state.data
-    }
+    loading: ({loadingCount}) => loadingCount > 0
   },
   mutations: {
-    data (state) {
-      state.data = {
-        code: 0,
-        msg: '操作成功',
-        data: [{name: '就是好男人', password: '123456', other: '张三李四王麻子'}]
-      }
+    loading (state) {
+      state.loadingCount++
+      console.debug('after loading the loading count is ', state.loadingCount)
+    },
+    loadingComplete (state) {
+      state.loadingCount--
+      console.debug('after complete the loading count is ', state.loadingCount)
     }
   },
   actions: {},
