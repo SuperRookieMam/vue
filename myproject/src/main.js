@@ -4,13 +4,20 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './vuex'
+import ElementUi from 'element-ui'
+
+Vue.use(ElementUi)
+Vue.use(router)
 
 Vue.config.productionTip = false
 /* eslint-disable no-new */
+
+/**
+ *  一定要使用 render函数创建app,这样就不需要依赖完整的esm，也就是不需要打包vue的编译模块了，
+ *  vue的模板编译模块体积打约是25KB左右
+ */
 new Vue({
-  el: '#app',
   router,
   store,
-  components: { App },
-  template: '<App/>'
-})
+  render: h => h(App)
+}).$mount('#app')
