@@ -15,27 +15,27 @@
 </template>
 
 <script>
-  import Vue from 'vue'
-  import { Component, Prop } from 'vue-property-decorator'
-  import { namespace } from 'vuex-class'
-  import qs from 'qs'
-  import translateUrl from './translateUrl'
+import Vue from 'vue'
+import { Component, Prop } from 'vue-property-decorator'
+import { namespace } from 'vuex-class'
+import qs from 'qs'
+import translateUrl from './translateUrl'
 
-  const oauthModule = namespace('security')
+const oauthModule = namespace('security')
 
-  function getCurrentPath () {
-    let {
-      protocol,
-      host,
-      pathname
-    } = window.location
-    return `${protocol}//${host}${pathname}`
-  }
+function getCurrentPath () {
+  let {
+    protocol,
+    host,
+    pathname
+  } = window.location
+  return `${protocol}//${host}${pathname}`
+}
 
   @Component({
     components: {}
   })
-  export default class Login extends Vue {
+export default class Login extends Vue {
     @Prop({})
     redirect
 

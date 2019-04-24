@@ -24,6 +24,18 @@ export default new Store({
     loadingComplete (state) {
       state.loadingCount--
       console.debug('after complete the loading count is ', state.loadingCount)
+    },
+    addError ({ errors }, payload) {
+      errors.unshift(payload)
+      if (errors.length > 10) {
+        errors.pop()
+      }
+    },
+    updateRouting (state, sta) {
+      state.routing = sta
+    },
+    updateMatched (state, matched) {
+      state.matched = matched
     }
   },
   actions: {},

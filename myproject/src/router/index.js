@@ -8,11 +8,11 @@ export default new Router({
     {
       path: '/',
       name: 'login',
-      component: () => import('@/module/login/login')
+      component: () => import('@/module/adminmodule/component/login/login')
     }, {
       path: '/hompage',
       name: 'hompage',
-      component: () => import('@/module/home/homePage')
+      component: () => import('@/module/adminmodule/component/home/homePage')
     }
   ]
 })

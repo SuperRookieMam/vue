@@ -24,5 +24,5 @@ export default class HomePage extends Vue {
 }
 </script>
 <style>
-  @import "../../../static/source/css/homepage/homePage.css";
+  @import "../../../../../static/source/css/homepage/homePage.css";
 </style>

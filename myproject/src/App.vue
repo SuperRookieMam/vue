@@ -4,7 +4,7 @@
 
 <script>
 import Vue from 'vue'
-import Login from './module/login/login'
+import Login from './module/adminmodule/component/login/login'
 import { Component } from 'vue-property-decorator'
 
 @Component({

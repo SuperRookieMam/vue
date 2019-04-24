@@ -30,5 +30,5 @@ export default class Login extends Vue {
 }
 </script>
 <style>
-  @import "../../../static/source/css/login/login.css";
+  @import "../../../../../static/source/css/login/login.css";
 </style>

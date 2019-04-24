@@ -2,12 +2,16 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
 import store from './vuex'
 import ElementUi from 'element-ui'
+import { httpInstance, router } from './config'
+import { adminmodule } from './module'
+import { AjaxPlugin } from './plugins'
 
 Vue.use(ElementUi)
 Vue.use(router)
+Vue.use(adminmodule, { store, router })
+Vue.use(AjaxPlugin, httpInstance)
 
 Vue.config.productionTip = false
 /* eslint-disable no-new */
